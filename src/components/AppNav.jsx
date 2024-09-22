@@ -1,4 +1,4 @@
-function AppLayout() {
+function AppNav() {
   return (
     <div>
       
@@ -6,4 +6,4 @@ function AppLayout() {
   )
 }
 
-export default AppLayout
+export default AppNav
