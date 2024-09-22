@@ -1,10 +1,11 @@
 import styles from "./Homepage.module.css";
-import {Link} from "react-router-dom";
-import AppNav from "../../components/AppNav/AppNav"
+import { Link } from "react-router-dom";
+import AppNav from "../../components/AppNav/AppNav";
+
 export default function Homepage() {
   return (
     <main className={styles.homepage}>
-      <AppNav/>
+      <AppNav />
 
       <section>
         <h1>
@@ -13,13 +14,11 @@ export default function Homepage() {
           WorldWise keeps track of your adventures.
         </h1>
         <h2>
-          A world map that tracks your footsteps into every city you 
-            can think
-          of. Never forget your wonderful experiences, and show your 
-            friends how
-          you have wandered the world.
+          A world map that tracks your footsteps into every city you
+          can think of. Never forget your wonderful experiences, and
+          show your friends how you have wandered the world.
         </h2>
-        <Link to='/app' className="cta">Start tracking Now</Link>
+        <Link to="/app" className="cta">Start tracking Now</Link>
       </section>
     </main>
   );
