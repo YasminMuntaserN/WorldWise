@@ -1,7 +1,9 @@
+import Homepage from "./pages/HomePage/Homepage"
+
 function App() {
   return (
     <div>
-      world isWise
+      <Homepage />
     </div>
   )
 }
