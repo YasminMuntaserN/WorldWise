@@ -1,10 +1,31 @@
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import styles from "./CityItem.module.css";
+import PropTypes from 'prop-types';
+
+const formatDate = (date) =>
+  new Intl.DateTimeFormat("en", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  }).format(new Date(date));
+
+  // Define PropTypes for the city object and its properties
+CityItem.propTypes = {
+  city: PropTypes.shape({
+    cityName: PropTypes.string.isRequired,
+    emoji: PropTypes.string.isRequired,
+    date: PropTypes.string.isRequired, // Ensure date is a string representing a valid date
+  }).isRequired,
+};
 
 function CityItem({ city }) {
+  const{cityName , emoji , date}=city;
     return (
-    <li>
-        { city }
+    <li className ={styles.cityItem}>
+        <span className ={styles.emoji}>{emoji}</span>
+        <h3 className={styles.name}>{cityName}</h3>
+        <time className={styles.date}>{formatDate(date)}</time>
+        <button className={styles.deleteBtn}>&times;</button>
     </li>
   );
 }
