@@ -11,27 +11,29 @@ import { useEffect, useState } from 'react';
 
 
 
-const BASE_URL ='http://localhost:9000';
+const BASE_URL ='http://localhost:8000';
 
 function App() {
-  const [cities, setCities]=useState([]);
-  const [isLoading, setIsLoading]=useState(false);
+  const [cities, setCities] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
-  useEffect(function(){
-    async function fetchCities(){
-      try{ 
-          setIsLoading(false);
-          const res=await fetchCities(`${BASE_URL}/cities`);
-          const data=await res.json();
-          setCities(data);
-    } catch{
-      alert('There was an error loading data...')
-    }finally{
-      setIsLoading(false);
+  useEffect(() => {
+    async function fetchCities() {
+      try {
+        setIsLoading(true);  // Set loading state before fetching data
+        const res = await fetch(`${BASE_URL}/cities`); // Use fetch instead of fetchCities
+        if (!res.ok) throw new Error('Failed to fetch cities'); // Handle HTTP errors
+        const data = await res.json();
+        setCities(data);
+      } catch (error) {
+        alert('There was an error loading data...');
+      } finally {
+        setIsLoading(false);  // Always set loading to false at the end
+      }
     }
-  }
-  fetchCities();
-  },[])
+    fetchCities();
+  }, []);
+  
   return (
     <BrowserRouter> 
     <Routes>
