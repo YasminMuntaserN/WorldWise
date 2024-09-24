@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom';  // New API for react-router-dom v6+
+import { Routes, Route, Navigate } from 'react-router-dom';  // New API for react-router-dom v6+
 import { BrowserRouter } from 'react-router-dom';  // Import BrowserRouter
 import Homepage from './pages/HomePage/Homepage';
 import Product from './pages/Product/Product';
@@ -8,7 +8,8 @@ import PageNotFound from "./pages/PageNotFound";
 import Login from "./pages/Login/Login";
 import CityList from './components/cityList/CityList';
 import CountryList from './components/CountryList/CountryList';
-
+import City from "./components/City/City";
+import Form from "./components/Form/Form";
 import { useEffect, useState } from 'react';
 
 
@@ -44,14 +45,22 @@ function App() {
       <Route path="pricing" element={<Pricing />} />
       <Route path="Login" element={<Login />} />
       <Route path="app" element={<AppLayout/>} >
-        <Route index element={
-            <CityList cities={cities}
-            isLoading={isLoading}/>}></Route>
-          <Route path="cities" element={<p>List of cities</p>}/>
-          <Route path="countries" element={<CountryList
+        {/* <Route index element={
+            <CityList
+                cities={cities}
+                isLoading={isLoading}/>}
+            /> */}
+          <Route index element={
+            <Navigate replace to="cities"/>}
+            />
+        <Route path="cities" element={<CityList
             cities={cities}
             isLoading={isLoading}/>}/>
-          <Route path="from" element={<p>Form</p>}/>
+        <Route path="cities/:id" element={<City />}/>
+        <Route path="countries" element={<CountryList
+            cities={cities}
+            isLoading={isLoading}/>}/>
+    <Route path="form" element={<Form/>}/>
       </Route>
       <Route path="*" element={<PageNotFound/>} />
     </Routes> 
