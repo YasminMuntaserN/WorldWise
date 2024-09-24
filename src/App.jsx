@@ -11,7 +11,7 @@ import CountryList from './components/CountryList/CountryList';
 import City from "./components/City/City";
 import Form from "./components/Form/Form";
 // import { useEffect, useState } from 'react';
-import CitiesProvider from "./contexts/citiesContext";
+import {CitiesProvider} from "./contexts/citiesContext";
 
 
 
