@@ -1,12 +1,16 @@
 import styles from "./Button.module.css";
 import PropTypes from 'prop-types';
 
-
 // Define prop types for validation
 Button.propTypes = {
-  children: PropTypes.object.isRequired,
+  children: PropTypes.node.isRequired, // Changed to 'node'
   onClick: PropTypes.func.isRequired,
-  type: PropTypes.string.isRequired,
+  type: PropTypes.string, // Made not required
+};
+
+// Optionally define default props
+Button.defaultProps = {
+  type: 'default', // Use a sensible default
 };
 
 function Button({ children, onClick, type }) {
@@ -18,3 +22,4 @@ function Button({ children, onClick, type }) {
 }
 
 export default Button;
+
