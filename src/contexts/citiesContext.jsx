@@ -55,20 +55,44 @@ function CitiesProvider({ children }) {
           "Content-Type": "application/json",
         }
       });
-      if (!res.ok) throw new Error('Failed to fetch cities');
+      if (!res.ok) throw new Error('Failed to Add cities');
       const data = await res.json();
   
       setCities(cities => [...cities , data])
       console.log(data);
     } catch (error) {
-      alert('There was an error loading cities data...');
+      alert('There was an error creating cities data...');
+    } finally {
+      setIsLoading(false);
+    }
+  }
+
+  async function deleteCity(id){
+    try {
+      setIsLoading(true);
+      const res = await fetch(`${BASE_URL}/cities/${id}` ,{
+        method :'DELETE',
+      });
+
+      if (!res.ok) throw new Error('Failed to Delete city');
+      await res.json();
+  
+      setCities(cities => cities.filter(c => c.id !== id));
+    } catch (error) {
+      alert('There was an error deleting cities data...');
     } finally {
       setIsLoading(false);
     }
   }
 
   return (
-    <CitiesContext.Provider value={{ cities, isLoading, currentCity, getCity ,createCity}}>
+    <CitiesContext.Provider value={{
+        cities, 
+        isLoading,
+        currentCity,
+        getCity ,
+        createCity,
+        deleteCity}}>
       {children}
     </CitiesContext.Provider>
   );
