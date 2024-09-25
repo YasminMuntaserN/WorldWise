@@ -1,15 +1,22 @@
-import { useNavigate } from "react-router-dom";
-import { useAuth } from "../contexts/FakeAuthContext";
+import { useAuth } from "../../contexts/FakeAuthContext";
+import Message from "../Message/Message";
 import styles from "./User.module.css";
+import { useNavigate } from "react-router-dom";
+
 
 function User() {
-  const { user, logout } = useAuth();
-  const navigate = useNavigate();
+  const navigate = useNavigate(); 
+  const {user ,logout ,isAuthenticated} =useAuth();
 
   function handleClick() {
     logout();
-    navigate("/");
+    if (!isAuthenticated) {
+      // If the user is not authenticated, redirect them to the login page
+      navigate("/Login");
+    }
   }
+
+  if(!user) return <Message message="No User defined 🤨"/>
 
   return (
     <div className={styles.user}>
@@ -21,13 +28,3 @@ function User() {
 }
 
 export default User;
-
-/*
-CHALLENGE
-
-1) Add `AuthProvider` to `App.jsx`
-2) In the `Login.jsx` page, call `login()` from context
-3) Inside an effect, check whether `isAuthenticated === true`. If so, programatically navigate to `/app`
-4) In `User.js`, read and display logged in user from context (`user` object). Then include this component in `AppLayout.js`
-5) Handle logout button by calling `logout()` and navigating back to `/`
-*/
