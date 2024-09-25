@@ -12,10 +12,14 @@ import City from "./components/City/City";
 import Form from "./components/Form/Form";
 // import { useEffect, useState } from 'react';
 import {CitiesProvider} from "./contexts/citiesContext";
+import {AuthProvider} from "./contexts/FakeAuthContext";
+import ProtectedRoute from './pages/ProtectedRoute/ProtectedRoute';
+
 
 
 function App() {
   return (
+<AuthProvider>
   <CitiesProvider>
     <BrowserRouter> 
     <Routes>
@@ -23,7 +27,12 @@ function App() {
       <Route path="product" element={<Product/>} />
       <Route path="pricing" element={<Pricing />} />
       <Route path="Login" element={<Login />} />
-      <Route path="app" element={<AppLayout/>} >
+
+    <Route path="app" element={
+      <ProtectedRoute> 
+          <AppLayout/>
+      </ProtectedRoute>} >
+      
         {/* <Route index element={
             <CityList
                 cities={cities}
@@ -32,6 +41,7 @@ function App() {
           <Route index element={
             <Navigate replace to="cities"/>}
             />
+            
         <Route path="cities" element={<CityList/>}/>
         <Route path="cities/:id" element={<City />}/>
         <Route path="countries" element={<CountryList/>}/>
@@ -41,6 +51,8 @@ function App() {
     </Routes> 
     </BrowserRouter> 
   </CitiesProvider>
+</AuthProvider>
+
   );
 }
 
