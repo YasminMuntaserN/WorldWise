@@ -12,14 +12,17 @@ const formatDate = (date) =>
 
     // Define PropTypes for the city object and its properties
     City.propTypes = {
-  city: PropTypes.shape({
-    cityName: PropTypes.string.isRequired,
-    emoji: PropTypes.string.isRequired,
-    date: PropTypes.string.isRequired,
-    position: PropTypes.string.isRequired,
-    id: PropTypes.number.isRequired,
-  }).isRequired,
-};
+      city: PropTypes.shape({
+        cityName: PropTypes.string.isRequired,
+        emoji: PropTypes.string.isRequired,
+        date: PropTypes.string.isRequired,
+        position: PropTypes.shape({
+          lat: PropTypes.number.isRequired,
+          lng: PropTypes.number.isRequired,
+        }).isRequired,
+        id: PropTypes.number.isRequired,
+      }).isRequired,
+    };
 
 
 function City({city}) {
@@ -29,8 +32,8 @@ function City({city}) {
 
 return (
         <li >
-      <Link className ={`${styles.cityItem}  ${id === currentCity.id ?styles['cityItem--active'] : ""}`}
-      to={`${id}?lat=${position.lat}&lng=${position.lng}`}>
+      <Link   className={`${styles.cityItem} ${currentCity && id === currentCity.id ? styles['cityItem--active'] : ""}`}
+        to={`${id}?lat=${position.lat}&lng=${position.lng}`}>
         <span className ={styles.emoji}>{emoji}</span>
         <h3 className={styles.name}>{cityName}</h3>
         <time className={styles.date}>{formatDate(date)}</time>

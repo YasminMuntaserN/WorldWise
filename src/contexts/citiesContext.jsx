@@ -58,6 +58,7 @@ function CitiesProvider({ children }) {
       if (!res.ok) throw new Error('Failed to fetch cities');
       const data = await res.json();
   
+      setCities(cities => [...cities , data])
       console.log(data);
     } catch (error) {
       alert('There was an error loading cities data...');
@@ -75,13 +76,9 @@ function CitiesProvider({ children }) {
 
 function useCities() {
   const context = useContext(CitiesContext);
-  if (context === undefined){ 
-    console.log("here the error ");
+  if (context === undefined)
     throw new Error("CitiesContext was used outside the CitiesProvider");
-  }
   return context;
 }
-
-
 
 export { CitiesProvider, useCities };
