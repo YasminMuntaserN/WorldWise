@@ -1,4 +1,4 @@
-import { createContext, useEffect, useContext, useReducer } from "react";
+import { createContext, useEffect, useContext, useReducer, useCallback } from "react";
 import PropTypes from "prop-types";
 
 const BASE_URL = 'http://localhost:8000';
@@ -59,7 +59,6 @@ function reducer(state , action)
   }
 }
 
-
 CitiesProvider.propTypes = {
   children: PropTypes.node.isRequired,
 };
@@ -90,7 +89,7 @@ function CitiesProvider({ children }) {
     fetchCities();
   }, []);
 
-  async function getCity(id) {
+  const getCity = useCallback(async function getCity(id) {
     dispatch({type:"loading"});
     // we must convert the id to Number because any number get from the url will be as string
     if(Number(id) === currentCity.id) return;
@@ -105,7 +104,7 @@ function CitiesProvider({ children }) {
     } catch (error) {
       dispatch({type:"rejected" ,payload:'There was an error loading city data...'});
     }
-  }
+  },[currentCity.id])
 
   async function createCity(newCity){
     try {

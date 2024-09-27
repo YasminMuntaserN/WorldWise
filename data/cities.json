@@ -37,27 +37,27 @@
       "id": "98443197"
     },
     {
-      "id": "2f21",
-      "cityName": "Hebron",
-      "country": "Palestine, State of",
-      "emoji": "🇵🇸",
-      "date": "2024-09-25T08:15:46.953Z",
-      "notes": "my city",
+      "id": "7c2e",
+      "cityName": "les Valls d'Aguilar",
+      "country": "Spain",
+      "emoji": "🇪🇸",
+      "date": "2024-09-27T06:42:08.017Z",
+      "notes": "test",
       "position": {
-        "lat": "31.507330679769904",
-        "lng": "35.065899840741665"
+        "lat": "42.29550413234769",
+        "lng": "1.1645507812500002"
       }
     },
     {
-      "id": "f7c3",
-      "cityName": "Fuenlabrada de los Montes",
-      "country": "Spain",
-      "emoji": "🇪🇸",
-      "date": "2024-09-25T11:51:11.040Z",
-      "notes": "tsr",
+      "id": "bc18",
+      "cityName": "Bethlehem",
+      "country": "Palestine, State of",
+      "emoji": "🇵🇸",
+      "date": "2024-09-27T06:42:25.051Z",
+      "notes": "test",
       "position": {
-        "lat": "39.162319560283144",
-        "lng": "-4.965820312500001"
+        "lat": "31.71305042638624",
+        "lng": "35.17822265625001"
       }
     }
   ]

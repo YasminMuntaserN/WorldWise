@@ -19,7 +19,7 @@ function City() {
 
   useEffect(() => {
     if (id) getCity(id); // Make sure the id is valid before calling getCity
-  }, [id]);
+  }, [id ,getCity]);
 
   if (isLoading) return <Spinner />;
 
