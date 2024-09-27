@@ -1,11 +1,14 @@
 import { Routes, Route, Navigate } from 'react-router-dom';  // New API for react-router-dom v6+
+import { lazy, Suspense } from 'react';
 import { BrowserRouter } from 'react-router-dom';  // Import BrowserRouter
-import Homepage from './pages/HomePage/Homepage';
-import Product from './pages/Product/Product';
-import Pricing from './pages/Pricing/Pricing';
-import AppLayout from "./pages/AppLayout/AppLayout";
-import PageNotFound from "./pages/PageNotFound";
-import Login from "./pages/Login/Login";
+
+const Homepage = lazy(()=>import ('./pages/HomePage/Homepage'));
+const Product = lazy(()=>import ('./pages/Product/Product'));
+const AppLayout = lazy(()=>import ('./pages/AppLayout/AppLayout'));
+const Pricing = lazy(()=>import ('./pages/Pricing/Pricing'));
+const Login = lazy(()=>import ('./pages/Login/Login'));
+const PageNotFound = lazy(()=>import ('./pages/PageNotFound/PageNotFound'));
+
 import CityList from './components/cityList/CityList';
 import CountryList from './components/CountryList/CountryList';
 import City from "./components/City/City";
@@ -22,6 +25,7 @@ function App() {
 <AuthProvider>
   <CitiesProvider>
     <BrowserRouter> 
+    <Suspense>
     <Routes>
       <Route index element={<Homepage />} />
       <Route path="product" element={<Product/>} />
@@ -49,6 +53,7 @@ function App() {
       </Route>
       <Route path="*" element={<PageNotFound/>} />
     </Routes> 
+    </Suspense>
     </BrowserRouter> 
   </CitiesProvider>
 </AuthProvider>
