@@ -13,12 +13,12 @@ WorldWise is an app that enables you save the places where you have been and the
 ## 📸 Screenshots
 <div align="center" display="flex">
   <div>
-  <img src="https://imgur.com/8ASAEhR.jpg" alt="Image 1" width="200"/>
-  <img src="https://imgur.com/M2RfLLp.jpg" alt="Image 2" width="200"/>
+  <img src="https://imgur.com/8ASAEhR.jpg" alt="Image 1" width="400"/>
+  <img src="https://imgur.com/M2RfLLp.jpg" alt="Image 2" width="400"/>
   </div>
   <div>
-  <img src="https://imgur.com/yIEC77R.jpg" alt="Image 3" width="200"/>
-  <img src="https://imgur.com/q3g7FYP.jpg" alt="Image 4" width="200"/>
+  <img src="https://imgur.com/yIEC77R.jpg" alt="Image 3" width="400"/>
+  <img src="https://imgur.com/q3g7FYP.jpg" alt="Image 4" width="400"/>
     </div>
 </div>
 
