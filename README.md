@@ -23,7 +23,7 @@ WorldWise is an app that enables you save the places where you have been and the
 </div>
 
 ## 🚀 Live Demo
- [this link](https://sparkly-sorbet-e9bfe3.netlify.app)
+ [this link](https://worldwisewithme.netlify.app)
 
  ## 🛠️Technologies Used
 - **React**
