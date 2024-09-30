@@ -4,11 +4,11 @@
 WorldWise is an app that enables you save the places where you have been and the places you want to go. It is a simple app that allows you to create a list of places you have been and places you want to go. You can also add notes to each place. It is a great way to keep track of your travels and plan your next trip.
 
 ## 🌟Features
-**Create a list of places you have been and places you want to go.**
-**Add notes to each place.**
-**View a map of all the places you have been and places you want to go.**
-**smoothly select the country you want to visit and add it to your list.**
-**remove cities from your list.**
+- **Create a list of places you have been and places you want to go.**
+- **Add notes to each place.**
+- **View a map of all the places you have been and places you want to go.**
+- **smoothly select the country you want to visit and add it to your list.**
+- **remove cities from your list.**
 
 ## 📸 Screenshots
 <div align="center" display="flex">
@@ -26,7 +26,7 @@ WorldWise is an app that enables you save the places where you have been and the
  [this link](https://sparkly-sorbet-e9bfe3.netlify.app)
 
  ## 🛠️Technologies Used
-**React**
-**React Router**
-**React leaflet**
-**CSS Modules**
+- **React**
+- **React Router**
+- **React leaflet**
+- **CSS Modules**
