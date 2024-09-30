@@ -7,7 +7,7 @@ const Product = lazy(()=>import ('./pages/Product/Product'));
 const AppLayout = lazy(()=>import ('./pages/AppLayout/AppLayout'));
 const Pricing = lazy(()=>import ('./pages/Pricing/Pricing'));
 const Login = lazy(()=>import ('./pages/Login/Login'));
-const PageNotFound = lazy(()=>import ('./pages/PageNotFound/PageNotFound'));
+const PageNotFound = lazy(()=>import ('./pages/PageNotFound'));
 
 import CityList from './components/cityList/CityList';
 import CountryList from './components/CountryList/CountryList';
